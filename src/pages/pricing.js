@@ -1,35 +1,36 @@
 const PricingPage = () => {
   return (
+    //Setting up the Pricing Page structure and styles
     <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", textAlign: "center" }}>
-      <h1 style={{ fontSize: "36px", color: "#2c3e50", marginBottom: "20px" }}>Our Pricing Plans</h1>
-      <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-        {/* Basic Plan */}
-        <div
-          style={{
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-            padding: "20px",
-            width: "200px",
-            backgroundColor: "#f9f9f9",
-          }}
-        >
-          <h2 style={{ fontSize: "24px", color: "#34495e" }}>Basic Plan</h2>
-          <p style={{ fontSize: "18px", color: "#7f8c8d" }}>$10/month</p>
-        </div>
+      <h1>Our Pricing Plans</h1>
+      <p>Choose a plan that fits your needs and budget.</p>
 
-        {/* Premium Plan */}
-        <div
-          style={{
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-            padding: "20px",
-            width: "200px",
-            backgroundColor: "#f9f9f9",
-          }}
-        >
-          <h2 style={{ fontSize: "24px", color: "#34495e" }}>Premium Plan</h2>
-          <p style={{ fontSize: "18px", color: "#7f8c8d" }}>$20/month</p>
-        </div>
+      <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
+        {[
+          //Setting 3 main plans on page
+          { title: "Basic Plan", price: "$10/month" },
+          { title: "Premium Plan", price: "$20/month" },
+          { title: "Pro Plan", price: "$50/month" },
+        ].map((plan, index) => (
+          <div
+            key={index}
+            style={{
+              //Setting up values and defining page value
+              border: "1px solid #ddd",
+              borderRadius: "10px",
+              padding: "10px",
+              width: "200px",
+              backgroundColor: "#fff",
+            }}
+            //Setting up Button clicking
+          >
+            <h2>{plan.title}</h2>
+            <p>{plan.price}</p>
+            <button style={{ padding: "5px 10px", backgroundColor: "#007bff", color: "#fff" }}>
+              Select
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
